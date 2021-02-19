@@ -7,4 +7,4 @@
 
 ### Screenshot of the Streamlit app
 
-!(./img/iris_streamlitapp.png)
+![screenshot](./img/iris_streamlitapp.png)
