@@ -1,23 +1,7 @@
-FROM ubuntu
-
-LABEL Author rajesh.r6r@gmail.com
-
-USER root
-
+FROM python:3.8-slim-buster
+COPY . /app
 WORKDIR /app
-
-ADD . /app
-
-RUN set -xe \
-    && apt-get update -y --no-install-recommends --yes\
-    && apt-get install python3-pip -y \
-    && rm -rf /var/lib/apt/lists/* # remove the cached files
-
-RUN pip3 install --upgrade pip
-
-RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
-
-
+RUN pip install -r requirements.txt
 EXPOSE 8501
-
-CMD ["streamlit run","./app/irismodelplayground.py"]
+ENTRYPOINT ["streamlit","run"]
+CMD ["irismodelplayground.py.py"]
