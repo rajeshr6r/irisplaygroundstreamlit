@@ -20,4 +20,4 @@ RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
 
 EXPOSE 8501
 
-CMD ["streamlit run","irismodelplayground.py"]
+CMD ["streamlit run","./app/irismodelplayground.py"]
