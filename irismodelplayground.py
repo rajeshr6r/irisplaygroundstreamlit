@@ -27,7 +27,7 @@ def load_model():
         loaded_model = pickle.load(open('./model/iris_model.sav', 'rb'))
         return loaded_model
     except Exception as e:
-        st.write ( f"Model Load Error {str(e)}" )
+        return f"Exception Occured {str(e)}"
 
 model_Load_state = st.text('Loading data...')
 loaded_model=load_model() # load the model here 
@@ -83,7 +83,7 @@ if result:
     
     
     #Do something funny
-    st.balloons()   
+    #st.balloons()   
 
 
     
