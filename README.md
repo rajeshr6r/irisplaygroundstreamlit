@@ -12,6 +12,12 @@ docker pull rajeshr6routlook/irisplaygroundstreamlit:latest
 
 docker run -itd -p 8501:8501 rajeshr6routlook/irisplaygroundstreamlit:latest
 ~~~
+### Update 06-Mar-2021 
+
+App is now also deployed on streamlit and here is the URL 
+
+[](https://share.streamlit.io/rajeshr6r/irisplaygroundstreamlit/irismodelplayground.py)
+
 
 ### Screenshot of the Streamlit app
 
