@@ -16,7 +16,7 @@ docker run -itd -p 8501:8501 rajeshr6routlook/irisplaygroundstreamlit:latest
 
 App is now also deployed on streamlit and here is the URL 
 
-[](https://share.streamlit.io/rajeshr6r/irisplaygroundstreamlit/irismodelplayground.py)
+[streamlit app url](https://share.streamlit.io/rajeshr6r/irisplaygroundstreamlit/irismodelplayground.py)
 
 
 ### Screenshot of the Streamlit app
