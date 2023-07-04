@@ -44,8 +44,8 @@ def prediction(loaded_model,array_of_features):
             species_type="Could Not Be Determined"
             return species_type
 
-st.beta_container()
-col1, col2 , col3 , col4 = st.beta_columns(4)
+st.container()
+col1, col2 , col3 , col4 = st.columns(4)
 
 
 sepallength=col1.number_input('Sepal Length')
@@ -61,7 +61,7 @@ if result:
     model_Load_state.text("Prediction Complete ! (using st.cache)")
     predicted_species=prediction(loaded_model,[[sepallength,sepalwidth,petallength,petalwidth]])      
     
-    col5, col6 = st.beta_columns(2)
+    col5, col6 = st.columns(2)
     col5.subheader("Your Inputs")
     col5.write({
                 "SepalLength":sepallength,
