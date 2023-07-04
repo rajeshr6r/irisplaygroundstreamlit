@@ -44,6 +44,25 @@ def prediction(loaded_model,array_of_features):
             species_type="Could Not Be Determined"
             return species_type
 
+@st.cache_data
+def load_model_and_predict():
+    try:
+        loaded_model = pickle.load(open('./model/iris_model.sav', 'rb'))
+        prediction_result=loaded_model.predict(array_of_features)
+        try:
+            species_type=prediction_mapper.get(prediction_result[0])
+            return species_type
+        except KeyError:
+            species_type="Could Not Be Determined"
+            return species_type
+    except Exception as e:
+        return f"Exception Occured {str(e)}"
+
+model_Load_state = st.text('Loading data...')
+loaded_model=load_model() # load the model here 
+model_Load_state.text("Model Loaded ! (using st.cache)")
+
+
 st.container()
 col1, col2 , col3 , col4 = st.columns(4)
 
@@ -59,7 +78,7 @@ result=st.button('Predict Species')
 if result:
     model_Load_state = st.text('Predicting Species...')
     model_Load_state.text("Prediction Complete ! (using st.cache)")
-    predicted_species=prediction(loaded_model,[[sepallength,sepalwidth,petallength,petalwidth]])      
+    predicted_species=load_model_and_predict(loaded_model,[[sepallength,sepalwidth,petallength,petalwidth]])      
     
     col5, col6 = st.columns(2)
     col5.subheader("Your Inputs")
