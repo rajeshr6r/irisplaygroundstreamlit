@@ -78,7 +78,7 @@ result=st.button('Predict Species')
 if result:
     model_Load_state = st.text('Predicting Species...')
     model_Load_state.text("Prediction Complete ! (using st.cache)")
-    predicted_species=load_model_and_predict([[sepallength,sepalwidth,petallength,petalwidth]])      
+    predicted_species=load_model_and_predict([sepallength,sepalwidth,petallength,petalwidth])      
     
     col5, col6 = st.columns(2)
     col5.subheader("Your Inputs")
