@@ -59,8 +59,8 @@ def load_model_and_predict(array_of_features):
         return f"Exception Occured {str(e)}"
 
 model_Load_state = st.text('Loading data...')
-loaded_model=load_model() # load the model here 
-model_Load_state.text("Model Loaded ! (using st.cache)")
+# loaded_model=load_model() # load the model here 
+# model_Load_state.text("Model Loaded ! (using st.cache)")
 
 
 st.container()
@@ -88,15 +88,18 @@ if result:
                 "PetalLength":petallength,
                 "PetalWidth":petalwidth                
                 })
-    col6.subheader(f"Predicted Species : {predicted_species}")
-    if predicted_species=='Iris-Setosa':
-        col6.image('./img/setosa.jpeg')
-    elif predicted_species=='Iris-Versicolour':
-        col6.image('./img/versicolor.jpeg')
-    elif predicted_species=='Iris-Virginica':
-        col6.image('./img/virginica.jpeg')
+    if predicted_species:
+        col6.subheader(f"Predicted Species : {predicted_species}")
+        if predicted_species=='Iris-Setosa':
+            col6.image('./img/setosa.jpeg')
+        elif predicted_species=='Iris-Versicolour':
+            col6.image('./img/versicolor.jpeg')
+        elif predicted_species=='Iris-Virginica':
+            col6.image('./img/virginica.jpeg')
+        else:
+            col6.write(f"{predicted_species}")
     else:
-        col6.write("Something went wrong. You may want to tweak your inputs")
+        col6.write("Something wrong. Consider tweaking your inputs")
 
 
     
