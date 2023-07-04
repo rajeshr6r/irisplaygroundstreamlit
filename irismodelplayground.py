@@ -21,7 +21,7 @@ st.title('IRIS Playground with Streamlit')
 html_string = "<a href='https://en.wikipedia.org/wiki/Iris_flower_data_set' target='blank'>Know More About IRIS Data Set</a>"
 st.markdown(html_string, unsafe_allow_html=True)
 
-@st.cache
+@st.cache_data
 def load_model():
     try:
         loaded_model = pickle.load(open('./model/iris_model.sav', 'rb'))
@@ -33,7 +33,7 @@ model_Load_state = st.text('Loading data...')
 loaded_model=load_model() # load the model here 
 model_Load_state.text("Model Loaded ! (using st.cache)")
 
-@st.cache
+@st.cache_data
 def prediction(loaded_model,array_of_features):    
     if loaded_model:# only if the model is there
         prediction_result=loaded_model.predict(array_of_features)
